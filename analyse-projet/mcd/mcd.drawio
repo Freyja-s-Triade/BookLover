@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="z8p4EltFUqia7EqdKkjk" name="Page-1">
+        <mxGraphModel dx="1091" dy="723" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Utilisateur" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="160" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;u&gt;code utilisateur&lt;/u&gt;&lt;div&gt;mail&lt;/div&gt;&lt;div&gt;mot de passe&lt;/div&gt;&lt;div&gt;nom&lt;/div&gt;&lt;div&gt;prénom&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="200" width="200" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Liste" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="160" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;u&gt;code liste&lt;/u&gt;&lt;div&gt;nom&lt;/div&gt;&lt;div&gt;couleur&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="200" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Livre" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="400" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;u&gt;code livre&lt;/u&gt;&lt;div&gt;titre&lt;/div&gt;&lt;div&gt;auteur&lt;/div&gt;&lt;div&gt;cote bibliothèque&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="440" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Tag" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="400" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;u&gt;code tag&lt;/u&gt;&lt;div&gt;titre&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;couleur&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="440" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Thème" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="640" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;u&gt;code thème&lt;/u&gt;&lt;div&gt;titre&lt;/div&gt;&lt;div&gt;couleur bordure&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="680" width="200" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
