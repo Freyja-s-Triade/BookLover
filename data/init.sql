@@ -33,7 +33,7 @@ CREATE TABLE list (
 
 CREATE TABLE author (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
     firstname VARCHAR(255),
     nationality VARCHAR(255),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -56,7 +56,7 @@ CREATE TABLE genre (
 
 CREATE TABLE book (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL UNIQUE,
     isbn VARCHAR(20) NOT NULL UNIQUE,
     year_published INTEGER,
     description TEXT,
