@@ -1,9 +1,10 @@
 # BookLover
 
 Ce projet est un **monorepo** contenant :
+
 - un **backend** (Express + Sequelize + PostgreSQL)
 - un **frontend** (React + Vite)
-- une configuration partagée pour les outils comme [Biome](https://biomejs.dev)
+- une configuration partagée pour les outils avec Biome
 
 ## Outils utilisés
 
