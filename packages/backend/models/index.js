@@ -35,3 +35,5 @@ List.belongsToMany(Book, {
     otherKey: 'book_id',
     as: 'books'
 });
+
+export { Author, Book, Genre, Editor, List, BookList }

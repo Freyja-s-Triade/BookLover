@@ -16,6 +16,7 @@ export class Author extends Model {}
 export class Editor extends Model {}
 export class Genre extends Model {}
 export class Book extends Model {}
+export class BookList extends Model {}
 
 
 User.init({
@@ -36,7 +37,9 @@ User.init({
         type: DataTypes.STRING(255),
         allowNull: false
     }
-}, { sequelize });
+}, { sequelize,
+    tablename: 'user'
+ });
 
 List.init({
     name: {
@@ -47,7 +50,10 @@ List.init({
         type: DataTypes.INTEGER,
         allowNull: false
     }
-}, { sequelize });
+}, { sequelize,
+    tablename: 'list',
+    freezeTableName: true
+ });
 
 Author.init({
     lastname: {
@@ -62,21 +68,27 @@ Author.init({
         type: DataTypes.STRING(255),
         allowNull: true,
     }
-}, { sequelize });
+}, { sequelize,
+    tablename: 'author'
+ });
 
 Editor.init({
     name: {
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-}, { sequelize });
+}, { sequelize,
+    tablename: 'editor'
+ });
 
 Genre.init({
     name: {
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-}, { sequelize });
+}, { sequelize,
+    tablename: 'genre'
+ });
 
 Book.init({
     title: {
@@ -101,9 +113,11 @@ Book.init({
         type: DataTypes.INTEGER,
         allowNull: true,
     }
-}, { sequelize });
+}, { sequelize,
+    tablename: 'book'
+ });
 
-booklist.init({
+BookList.init({
     bookId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -122,7 +136,9 @@ booklist.init({
             key: 'id'
         }
     }
-}, { sequelize });
+}, { sequelize,
+    tablename: 'booklist'
+ });
 
 // BookList.associate = (models) => {
 //     BookList.belongsTo(models.Book, { foreignKey: 'bookId', onDelete: 'CASCADE' });

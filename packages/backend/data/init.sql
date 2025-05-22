@@ -23,6 +23,14 @@ CREATE TABLE "user" (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE BookList (
+    id SERIAL PRIMARY KEY,
+    book_id INTEGER NOT NULL,
+    list_id INTEGER NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE list (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -68,14 +76,6 @@ CREATE TABLE book (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE BookList (
-    id SERIAL PRIMARY KEY,
-    book_id INTEGER NOT NULL,
-    list_id INTEGER NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
 
 INSERT INTO "user" (lastname, firstname, email, password)
 VALUES 
@@ -87,7 +87,7 @@ VALUES
 ('À lire', 1),
 ('Mes favoris', 2);
 
-INSERT INTO author (name, firstname, nationality)
+INSERT INTO author (lastname, firstname, nationality)
 VALUES 
 ('Verne', 'Jules', 'Française'),
 ('Rowling', 'J.K.', 'Britannique');
