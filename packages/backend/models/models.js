@@ -103,7 +103,7 @@ Book.init({
     }
 }, { sequelize });
 
-Booklist.init({
+booklist.init({
     bookId: {
         type: DataTypes.INTEGER,
         allowNull: false,
