@@ -1,4 +1,3 @@
-import { nextTick } from "process";
 import { List } from "../models/index.js";
 
 export const bookListController = {
@@ -7,10 +6,14 @@ export const bookListController = {
 
     res.json(lists);
   },
+  //   Voir les livres(titre et année de publication) d'une liste
   async showList(req, res) {
     const { id } = req.params;
-    const list = await List.findByPk(id);
-
+    const list = await List.findByPk(id, {
+      include: [
+        { association: "books", attributes: ["title", "year_published"] },
+      ],
+    });
     if (!list) {
       return next();
     }
