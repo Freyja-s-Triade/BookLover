@@ -1,9 +1,19 @@
-import { List } from '../models/index.js';
+import { nextTick } from "process";
+import { List } from "../models/index.js";
 
 export const bookListController = {
-    async index(_req, res) {
-        const lists = await List.findAll();
+  async index(_req, res) {
+    const lists = await List.findAll();
 
-        res.json(lists);
+    res.json(lists);
+  },
+  async showList(req, res) {
+    const { id } = req.params;
+    const list = await List.findByPk(id);
+
+    if (!list) {
+      return next();
     }
-}
+    return res.json(list);
+  },
+};

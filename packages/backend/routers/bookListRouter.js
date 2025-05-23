@@ -4,6 +4,10 @@ const bookListRouter = Router();
 
 import { bookListController } from "../controllers/bookListController.js";
 
-bookListRouter.get("/lists", catchErrors(bookListController.index));
+bookListRouter.route("/lists").get(catchErrors(bookListController.index));
+
+bookListRouter
+  .route("/lists/:id")
+  .get(catchErrors(bookListController.showList));
 
 export { bookListRouter };
