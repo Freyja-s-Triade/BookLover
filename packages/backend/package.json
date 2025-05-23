@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "db:create": "psql -u booklover -f data/init.sql"
+    "db:create": "node data/createDb.js",
+    "db:seed": "node data/seedingDb.js",
+    "db:reset": "npm run db:create && npm run db:seed"
   },
   "keywords": [
     "express",
