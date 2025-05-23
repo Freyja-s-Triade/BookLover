@@ -6,12 +6,26 @@ export const bookListController = {
 
     res.json(lists);
   },
-  //   Voir les livres(titre et année de publication) d'une liste
+
   async showList(req, res) {
+    // TODO Sécuriser les req.body
     const { id } = req.params;
     const list = await List.findByPk(id, {
       include: [
-        { association: "books", attributes: ["title", "year_published"] },
+        {
+          association: "books",
+          attributes: ["title"],
+          include: [
+            {
+              association: "author",
+              attributes: ["lastname", "firstname"],
+            },
+            {
+              association: "genre",
+              attributes: ["name"],
+            },
+          ],
+        },
       ],
     });
     if (!list) {
