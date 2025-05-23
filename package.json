@@ -3,6 +3,7 @@
 "version": "1.0.0",
 "main": "index.js",
 "scripts": {
+    "db:create": "npm run db:create --workspace backend",
     "dev:back": "npm run dev --workspace backend",
     "dev:front": "npm run dev --workspace frontend",
     "start:back": "npm run start --workspace backend",

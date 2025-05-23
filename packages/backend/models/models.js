@@ -38,7 +38,9 @@ User.init({
         allowNull: false
     }
 }, { sequelize,
-    tablename: 'user'
+    tableName: 'user',
+    freezeTableName: true
+
  });
 
 List.init({
@@ -51,7 +53,7 @@ List.init({
         allowNull: false
     }
 }, { sequelize,
-    tablename: 'list',
+    tableName: 'list',
     freezeTableName: true
  });
 
@@ -69,7 +71,7 @@ Author.init({
         allowNull: true,
     }
 }, { sequelize,
-    tablename: 'author'
+    tableName: 'author'
  });
 
 Editor.init({
@@ -78,7 +80,8 @@ Editor.init({
         allowNull: false,
     },
 }, { sequelize,
-    tablename: 'editor'
+    tableName: 'editor',
+    freezeTableName: true
  });
 
 Genre.init({
@@ -87,7 +90,8 @@ Genre.init({
         allowNull: false,
     },
 }, { sequelize,
-    tablename: 'genre'
+    tableName: 'genre',
+    freezeTableName: true
  });
 
 Book.init({
@@ -101,7 +105,7 @@ Book.init({
         allowNull: false,
         unique: true
     },
-    yearPublished: {
+    year_published: {
         type: DataTypes.INTEGER,
         allowNull: true,
     },
@@ -114,11 +118,12 @@ Book.init({
         allowNull: true,
     }
 }, { sequelize,
-    tablename: 'book'
+    tableName: 'book',
+    freezeTableName: true
  });
 
 BookList.init({
-    bookId: {
+    book_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: 'book_list_unique',
@@ -127,7 +132,7 @@ BookList.init({
             key: 'id'
         }
     },
-    listId: {
+    list_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: 'book_list_unique',
@@ -137,7 +142,8 @@ BookList.init({
         }
     }
 }, { sequelize,
-    tablename: 'booklist'
+    tableName: 'booklist',
+    freezeTableName: true
  });
 
 // BookList.associate = (models) => {

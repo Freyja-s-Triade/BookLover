@@ -5,7 +5,7 @@ SET standard_conforming_strings = on;
 SET client_min_messages = warning;
 SET schema 'public';
 
-DROP TABLE IF EXISTS BookList;
+DROP TABLE IF EXISTS bookList;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS genre;
 DROP TABLE IF EXISTS editor;
@@ -23,7 +23,7 @@ CREATE TABLE "user" (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE BookList (
+CREATE TABLE booklist (
     id SERIAL PRIMARY KEY,
     book_id INTEGER NOT NULL,
     list_id INTEGER NOT NULL,
@@ -107,7 +107,7 @@ VALUES
 ('Vingt mille lieues sous les mers', '9782070418794', 1870, 'Une aventure sous-marine fascinante.', 300, 1, 1, 1),
 ('Harry Potter à l\''école des sorciers', '9780747532743', 1997, 'Le début de la saga Harry Potter.', 320, 2, 2, 2);
 
-INSERT INTO BookList (book_id, list_id)
+INSERT INTO booklist (book_id, list_id)
 VALUES 
 (1, 1),
 (2, 2);
@@ -127,12 +127,12 @@ ADD CONSTRAINT fk_book_editor
 FOREIGN KEY (editor_id) REFERENCES editor(id)
 ON DELETE SET NULL;
 
-ALTER TABLE BookList
+ALTER TABLE booklist
 ADD CONSTRAINT fk_booklist_book
 FOREIGN KEY (book_id) REFERENCES book(id)
 ON DELETE CASCADE;
 
-ALTER TABLE BookList
+ALTER TABLE booklist
 ADD CONSTRAINT fk_booklist_list
 FOREIGN KEY (list_id) REFERENCES list(id)
 ON DELETE CASCADE;
