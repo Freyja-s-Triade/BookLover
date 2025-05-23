@@ -8,7 +8,6 @@ export const bookListController = {
   },
 
   async showList(req, res) {
-    // TODO Sécuriser les req.body
     const { id } = req.params;
     const list = await List.findByPk(id, {
       include: [
