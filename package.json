@@ -16,7 +16,14 @@
     "author": "",
     "license": "ISC",
     "description": "",
-    "devDependencies": { "@biomejs/biome": "^1.9.4" },
-    "workspaces": ["packages/*"],
-    "dependencies": { "joi": "^17.13.3" }
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "daisyui": "^5.0.43"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "dependencies": {
+        "joi": "^17.13.3"
+    }
 }
