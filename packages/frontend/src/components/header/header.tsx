@@ -3,7 +3,11 @@ import { useState } from "react";
 
 import logo from "@src/assets/icons/logo.svg";
 
-export default function Header() {
+interface HeaderProps {
+    className?: string;
+}
+
+export default function Header({ className = "" }: HeaderProps) {
     // useState to manage the display of the burger menu
     const [isOpen, setIsOpen] = useState(false);
 
@@ -13,16 +17,16 @@ export default function Header() {
     };
 
     return (
-        <header className="header">
+        <header className={`p-4 ${className}`}>
             {/* logo */}
             <a href="/" className="logo">
                 <img src={logo} alt="Logo BookLover" />
             </a>
 
             {/* burger menu */}
-            <nav className="burger-menu">
+            <nav>
                 {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
-                <button className="burger" onClick={toggleMenu}>
+                <button onClick={toggleMenu}>
                     {isOpen ? (
                         // cross icon
                         // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
@@ -41,7 +45,7 @@ export default function Header() {
 
                 {/* links are displayed on click on the burger menu */}
                 {isOpen && (
-                    <ul className="navbar">
+                    <ul className="flex flex-col text-right">
                         <li>
                             <NavLink to="lists" className="nav-links">
                                 Mes listes
