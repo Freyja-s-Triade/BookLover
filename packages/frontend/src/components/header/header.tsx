@@ -21,15 +21,18 @@ export default function Header() {
 
             {/* burger menu */}
             <nav className="burger-menu">
+                {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
                 <button className="burger" onClick={toggleMenu}>
                     {isOpen ? (
                         // cross icon
+                        // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
                             <line x1="10" y1="10" x2="40" y2="40" stroke="#000" strokeWidth="4" strokeLinecap="round" />
                             <line x1="40" y1="10" x2="10" y2="40" stroke="#000" strokeWidth="4" strokeLinecap="round" />
                         </svg>
                     ) : (
                         // menu burger icon
+                        // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
                             <path d="M5 8A2 2 0 1 0 5 12L45 12A2 2 0 1 0 45 8L5 8zM5 23A2 2 0 1 0 5 27L45 27A2 2 0 1 0 45 23L5 23zM5 38A2 2 0 1 0 5 42L45 42A2 2 0 1 0 45 38L5 38z" />
                         </svg>
