@@ -8,6 +8,24 @@ export type User = {
     UpdatedAt: string;
 };
 
+export type HomePageBook = {
+    id: number;
+    title: string;
+    author?: {
+        firstname: string;
+        lastname: string;
+    };
+    genre?: {
+        name: string;
+    };
+};
+
+export type HomePageList = {
+    id: number;
+    name: string;
+    books: HomePageBook[];
+};
+
 export type BookList = {
     id: number;
     bookId: number;
