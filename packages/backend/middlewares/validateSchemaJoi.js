@@ -1,4 +1,4 @@
-export function validateParams(schema) {
+export function validateReq(schema) {
   return (req, res, next) => {
     const { error } = schema.validate(req.params);
     if (error) {
