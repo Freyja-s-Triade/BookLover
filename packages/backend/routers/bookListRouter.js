@@ -18,6 +18,7 @@ bookListRouter
     validateReq(paramsSchema),
     validateReq(bodySchema),
     catchErrors(bookListController.update)
-  );
+  )
+  .delete(validateReq(paramsSchema), bookListController.destroy);
 
 export { bookListRouter };

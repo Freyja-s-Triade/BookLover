@@ -99,4 +99,16 @@ export const bookListController = {
     });
     res.status(200).json(updatedList);
   },
+
+  // Requête pour supprimer une liste
+  async destroy(req, res, next) {
+    const { id } = req.params;
+
+    const list = await List.findByPk(id);
+    if (!list) {
+      return next();
+    }
+    await list.destroy();
+    res.status(204).end();
+  },
 };
