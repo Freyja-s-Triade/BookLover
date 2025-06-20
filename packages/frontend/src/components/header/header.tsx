@@ -8,8 +8,15 @@ export default function Header() {
             <div className="navbar w-full bg-base-100 shadow-sm">
                 {/* burger menu */}
                 <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                    <a href="/" className="logo">
+                        <img src={logo} alt="Logo BookLover" />
+                    </a>
+                </div>
+
+                {/* logo */}
+                <div className="navbar-end">
+                    <div className="dropdown dropdown-end">
+                        <button type="button" className="btn btn-ghost btn-circle">
                             {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +33,7 @@ export default function Header() {
                                     d="M4 6h16M4 12h16M4 18h7"
                                 />{" "}
                             </svg>
-                        </div>
+                        </button>
                         <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-right">
                             <li className="text-right">
                                 <NavLink to="lists" className="nav-links block truncate">
@@ -45,13 +52,6 @@ export default function Header() {
                             </li>
                         </ul>
                     </div>
-                </div>
-
-                {/* logo */}
-                <div className="navbar-end">
-                    <a href="/" className="logo">
-                        <img src={logo} alt="Logo BookLover" />
-                    </a>
                 </div>
             </div>
         </header>
