@@ -10,7 +10,6 @@ function App() {
         <div className="flex flex-col h-screen">
             <Header />
             <main className="flex-grow">
-                TODO
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                 </Routes>

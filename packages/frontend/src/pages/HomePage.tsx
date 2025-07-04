@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { HomePageList } from "../@types";
 import { fetchHomePageLists } from "../services/api";
 import HomePageListCard from "../components/HomePageListCard";
-
+import Heading from "../components/styles/Heading";
 
 export default function HomePage() {
     const {
@@ -20,7 +20,7 @@ export default function HomePage() {
 
     return (
         <div>
-            <h1>Mes listes</h1>
+            <Heading tag="h1">Mes listes</Heading>
 
             <ul>
                 {lists.map((list) => (
