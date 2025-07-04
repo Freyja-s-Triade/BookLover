@@ -1,3 +1,7 @@
 export default function addList() {
-    return <h1>Add list</h1>;
+    return (
+        <div className="m-auto w-4/5 mt-4">
+            <h1>Créer une liste</h1>
+        </div>
+    );
 }

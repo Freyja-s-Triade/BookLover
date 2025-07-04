@@ -13,8 +13,10 @@ type ButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButton
     isLoading?: boolean;
 };
 
+/*
 const Page = () => (
     <Button className="btn-primary" isLoading>
         Do somthing
     </Button>
 );
+*/
