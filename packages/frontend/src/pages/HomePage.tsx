@@ -1,6 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import type { HomePageList } from "../@types";
 import { fetchHomePageLists } from "../services/api";
-import { useQuery } from "@tanstack/react-query";
+import HomePageListCard from "../components/HomePageListCard";
+
 
 export default function HomePage() {
     const {
