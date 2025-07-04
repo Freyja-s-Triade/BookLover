@@ -18,7 +18,7 @@ export default function HomePage() {
     if (error) return `An error has occured: ${error.message}`;
 
     return (
-        <div>
+        <div className="m-auto w-4/5 mt-4">
             <h1 className="h1">Mes listes</h1>
 
             <ul>
