@@ -1,6 +1,6 @@
 import type React from "react";
 
-type TextVariant = "bold" | "italic" | "link";
+type TextVariant = "bold" | "semibold" | "italic" | "link";
 
 type TextProps = {
     variant: TextVariant;
@@ -11,6 +11,7 @@ type TextProps = {
 
 const textStyles: Record<TextVariant, string> = {
     bold: "font-bold text-base text-base-content",
+    semibold: "font-semibold",
     italic: "italic text-base text-base-content",
     link: "text-sm text-accent underline hover:text-secondary transition-colors",
 };
