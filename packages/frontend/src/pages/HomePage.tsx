@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router";
 import type { HomePageList } from "../@types";
 import { fetchHomePageLists } from "../services/api";
 import HomePageListCard from "../components/HomePageListCard";
+import { Button } from "../components/button";
 
 export default function HomePage() {
     const {
@@ -28,6 +30,12 @@ export default function HomePage() {
                     </li>
                 ))}
             </ul>
+
+            <div className="flex justify-end">
+                <Link to="/addList">
+                    <Button className="btn-success">+</Button>
+                </Link>
+            </div>
         </div>
     );
 }
