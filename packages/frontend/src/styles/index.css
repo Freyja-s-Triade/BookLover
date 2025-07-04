@@ -2,3 +2,7 @@
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark, lofi;
 }
+
+.h1 {
+  @apply text-4xl font-bold text-primary mb-4;
+}

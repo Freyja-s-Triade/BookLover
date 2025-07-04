@@ -6,7 +6,7 @@ type HomePageListCardProps = {
 
 export default function HomePageListCard({ list }: HomePageListCardProps) {
     return (
-        <div className="card bg-base-300 text-base-content w-120">
+        <div className="card bg-base-300 text-base-content w-4/5 mx-auto my-5">
             <div className="card-body">
                 <h2 className="card-title">{list.name}</h2>
                 <ul>

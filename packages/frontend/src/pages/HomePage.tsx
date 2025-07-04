@@ -20,7 +20,7 @@ export default function HomePage() {
 
     return (
         <div>
-            <Heading tag="h1">Mes listes</Heading>
+            <h1 className="h1">Mes listes</h1>
 
             <ul>
                 {lists.map((list) => (
