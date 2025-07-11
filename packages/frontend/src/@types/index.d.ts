@@ -24,6 +24,10 @@ export type HomePageList = {
     id: number;
     name: string;
     books: HomePageBook[];
+    tags: {
+        name: string;
+        color: string;
+    }[];
 };
 
 export type BookList = {
@@ -61,6 +65,14 @@ export type Editor = {
 export type Genre = {
     id: number;
     name: string;
+    CreatedAt: string;
+    UpdatedAt: string;
+};
+
+export type Tag = {
+    id: number;
+    name: string;
+    color?: string;
     CreatedAt: string;
     UpdatedAt: string;
 };

@@ -23,6 +23,16 @@ export default function HomePageListCard({ list }: HomePageListCardProps) {
                     </div>
                 </div>
 
+                <ul className="flex gap-2">
+                    {list.tags?.map((tag) => (
+                        <li key={tag.name}>
+                            <button className={`btn btn-${tag.color}`}>
+                                {tag.name}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+
                 <ul>
                     {list.books.map((book: HomePageBook) => (
                         <li key={book.id}>
