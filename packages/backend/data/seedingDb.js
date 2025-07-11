@@ -117,6 +117,16 @@ for (const list of lists) {
   }
 }
 
+//add tags to lists
+const list1 = await List.findByPk(1);
+const list2 = await List.findByPk(2);
+const tag1 = await Tag.findByPk(1);
+const tag2 = await Tag.findByPk(2);
+const tag3 = await Tag.findByPk(3);
+
+await list1.addTags([tag1, tag2]); // Associe Kannan & Coralie à "À lire"
+await list2.addTag(tag3); // Associe Chloé à "Mes favoris"
+
 console.log('\n✅ Seeding done!\n');
 console.log('---')
 console.log('Data inserted:'); 
