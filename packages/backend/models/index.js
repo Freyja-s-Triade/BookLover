@@ -1,4 +1,4 @@
-import { Author, Book, Genre, Editor, List, BookList } from './models.js';
+import { Author, Book, Tag, Genre, Editor, List, BookList, ListHasTag } from './models.js';
 
 // One book has one author / genre / editor
 // One author has many books
@@ -20,7 +20,9 @@ Book.belongsTo(Editor, {
     as: 'editor'
 });
 
+
 // Many books belongs to many List
+// Many tags belong to many List
 // -> Many To Many
 Book.belongsToMany(List, {
     through: BookList,
@@ -36,4 +38,19 @@ List.belongsToMany(Book, {
     as: 'books'
 });
 
-export { Author, Book, Genre, Editor, List, BookList }
+Tag.belongsToMany(List, {
+    through: ListHasTag,
+    foreignKey: 'tag_id',
+    otherKey: 'list_id',
+    as: 'lists'
+});
+
+List.belongsToMany(Tag, {
+    through: ListHasTag,
+    foreignKey: 'list_id',
+    otherKey: 'tag_id',
+    as: 'tags'
+});
+
+
+export { Author, Book, Tag, Genre, Editor, List, BookList, ListHasTag }

@@ -18,7 +18,11 @@ async index(_req, res) {
                 attributes: ["name"],
                 },
             ],
-            }
+            },
+            {
+                association: "tags",
+                attributes: ["name", "color"],
+            },
         ]
     });
 

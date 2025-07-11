@@ -1,5 +1,5 @@
 import  sequelize from "../models/sequelizeClient.js";
-import  { Author, Book, Genre, Editor, List, BookList } from "../models/index.js"
+import  { Author, Book, Genre, Editor, List, BookList, Tag, ListHasTag } from "../models/index.js"
 import { User } from "../models/models.js";
 
 // Seeding Users
@@ -16,6 +16,19 @@ for (const user of users) {
     email: user.email,
     password: user.password,
   });
+}
+
+// Seeding Tags
+const tags = [
+  { name: 'Kannan', color: 'info' },
+  { name: 'Coralie', color: 'success' },
+  { name: 'Chloé', color: 'warning' }
+];
+
+const createdTags = [];
+for (const tag of tags) {
+  const newTag = await Tag.create(tag);
+  createdTags.push(newTag);
 }
 
 //Seeding Authors
@@ -108,6 +121,7 @@ console.log('\n✅ Seeding done!\n');
 console.log('---')
 console.log('Data inserted:'); 
 console.log(users.length, 'users');
+console.log(tags.length, 'tags');
 console.log(lists.length, 'lists');
 console.log(editors.length, 'editors');
 console.log(genres.length, 'genres');
