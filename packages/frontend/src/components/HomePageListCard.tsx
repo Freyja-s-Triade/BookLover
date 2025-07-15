@@ -26,7 +26,7 @@ export default function HomePageListCard({ list }: HomePageListCardProps) {
                 <ul className="flex gap-2">
                     {list.tags?.map((tag) => (
                         <li key={tag.name}>
-                            <button className={`btn btn-${tag.color}`}>
+                            <button type="button" className={`btn btn-${tag.color}`}>
                                 {tag.name}
                             </button>
                         </li>
