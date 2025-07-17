@@ -1,6 +1,7 @@
 import { useForm } from "@tanstack/react-form";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { Button } from "../components/button";
 
 export default function AddList() {
     // Mutation pour créer une liste avec un tag
@@ -54,20 +55,16 @@ export default function AddList() {
         <div className="m-auto w-4/5 mt-4">
             <h1 className="h1">Créer une liste</h1>
 
-            <form
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    form.handleSubmit();
-                }}
-            >
+            <form className="flex flex-col gap-y-4" onSubmit={form.handleSubmit}>
                 {/* Champ : Nom de la liste */}
                 <form.Field
                     name="listName"
                     children={(field) => (
                         <>
-                            <label htmlFor={field.name}>Nom de la liste:</label>
+                            <label htmlFor={field.name}>Titre</label>
                             <input
                                 type="text"
+                                className="input input-md"
                                 name={field.name}
                                 value={field.state.value}
                                 onChange={(e) => field.handleChange(e.target.value)}
@@ -84,63 +81,74 @@ export default function AddList() {
                             <label htmlFor={field.name}>Position:</label>
                             <input
                                 type="number"
+                                className="input input-md"
                                 name={field.name}
                                 value={field.state.value}
-                                onChange={(e) => field.handleChange(parseInt(e.target.value, 10))}
+                                onChange={(e) => field.handleChange(Number.parseInt(e.target.value, 10))}
                             />
                         </>
                     )}
                 />
 
-                {/* Champ : Nom du tag */}
-                <form.Field
-                    name="tagName"
-                    children={(field) => (
-                        <>
-                            <label htmlFor={field.name}>Nom du tag:</label>
-                            <input
-                                type="text"
-                                name={field.name}
-                                value={field.state.value}
-                                onChange={(e) => field.handleChange(e.target.value)}
-                            />
-                        </>
-                    )}
-                />
+                <div className="flex flex-col gap-y-2">
+                    <h2 className="h2">Tag</h2>
 
-                {/* Champ : Couleur du tag */}
-                <form.Field
-                    name="tagColor"
-                    children={(field) => {
-                        const colors = ["red", "green", "blue", "orange", "purple"];
-
-                        return (
+                    {/* Champ : Nom du tag */}
+                    <form.Field
+                        name="tagName"
+                        children={(field) => (
                             <>
-                                <label htmlFor={field.name} className="block mb-2">
-                                    Choisir une couleur :
-                                </label>
-                                <div className="flex gap-2">
-                                    {colors.map((color) => (
-                                        <button
-                                            key={color}
-                                            type="button"
-                                            onClick={() => field.handleChange(color)}
-                                            className={`w-8 h-8 rounded cursor-pointer border-2 ${
-                                                field.state.value === color ? "border-black" : "border-transparent"
-                                            }`}
-                                            style={{ backgroundColor: color }}
-                                            aria-label={`Choisir la couleur ${color}`}
-                                        />
-                                    ))}
-                                </div>
+                                <label htmlFor={field.name}>Nom tag</label>
+                                <input
+                                    type="text"
+                                    className="input input-md"
+                                    name={field.name}
+                                    value={field.state.value}
+                                    onChange={(e) => field.handleChange(e.target.value)}
+                                />
                             </>
-                        );
-                    }}
-                />
+                        )}
+                    />
 
-                <button type="submit" disabled={createListMutation.isPending}>
-                    Créer la liste
-                </button>
+                    {/* Champ : Couleur du tag */}
+                    <form.Field
+                        name="tagColor"
+                        children={(field) => {
+                            const colors = ["warning", "error", "success", "info", "primary"];
+                            const selected = field.state.value;
+
+                            return (
+                                <>
+                                    <label htmlFor={field.name} className="block mb-2">
+                                        Couleur tag
+                                    </label>
+                                    <div className="flex gap-2">
+                                        {colors.map((color) => (
+                                            <button
+                                                key={color}
+                                                type="button"
+                                                onClick={() => field.handleChange(color)}
+                                                className={`
+                                                    w-8 h-8 rounded cursor-pointer border-2
+                                                    bg-${color}
+                                                    ${
+                                                        selected === color
+                                                            ? "border-black scale-110"
+                                                            : "border-transparent"
+                                                    }`}
+                                                aria-label={`Choisir la couleur ${color}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            );
+                        }}
+                    />
+                </div>
+
+                <div className="flex justify-end">
+                    <Button className="btn-success">Sauvegarder</Button>
+                </div>
             </form>
         </div>
     );
