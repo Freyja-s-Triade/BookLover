@@ -1,5 +1,5 @@
 import  sequelize from "../models/sequelizeClient.js";
-import  { Author, Book, Genre, Editor, List, BookList } from "../models/index.js"
+import  { Author, Book, Genre, Editor, List, BookList, Tag, ListHasTag } from "../models/index.js"
 import { User } from "../models/models.js";
 
 // Seeding Users
@@ -16,6 +16,19 @@ for (const user of users) {
     email: user.email,
     password: user.password,
   });
+}
+
+// Seeding Tags
+const tags = [
+  { name: 'Kannan', color: 'info' },
+  { name: 'Coralie', color: 'success' },
+  { name: 'Chloé', color: 'warning' }
+];
+
+const createdTags = [];
+for (const tag of tags) {
+  const newTag = await Tag.create(tag);
+  createdTags.push(newTag);
 }
 
 //Seeding Authors
@@ -104,10 +117,21 @@ for (const list of lists) {
   }
 }
 
+//add tags to lists
+const list1 = await List.findByPk(1);
+const list2 = await List.findByPk(2);
+const tag1 = await Tag.findByPk(1);
+const tag2 = await Tag.findByPk(2);
+const tag3 = await Tag.findByPk(3);
+
+await list1.addTags([tag1, tag2]); // Associe Kannan & Coralie à "À lire"
+await list2.addTag(tag3); // Associe Chloé à "Mes favoris"
+
 console.log('\n✅ Seeding done!\n');
 console.log('---')
 console.log('Data inserted:'); 
 console.log(users.length, 'users');
+console.log(tags.length, 'tags');
 console.log(lists.length, 'lists');
 console.log(editors.length, 'editors');
 console.log(genres.length, 'genres');

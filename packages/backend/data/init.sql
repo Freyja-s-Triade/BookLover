@@ -11,6 +11,8 @@ DROP TABLE IF EXISTS genre;
 DROP TABLE IF EXISTS editor;
 DROP TABLE IF EXISTS author;
 DROP TABLE IF EXISTS list;
+DROP TABLE IF EXISTS tag;
+DROP TABLE IF EXISTS list_tag;
 DROP TABLE IF EXISTS "user";
 
 CREATE TABLE "user" (
@@ -62,6 +64,14 @@ CREATE TABLE genre (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE tag (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    color VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE book (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL UNIQUE,
@@ -72,8 +82,15 @@ CREATE TABLE book (
     author_id INTEGER,
     genre_id INTEGER,
     editor_id INTEGER,
+    tag_id INTEGER,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE list_tag (
+    list_id INTEGER NOT NULL,
+    tag_id INTEGER NOT NULL,
+    PRIMARY KEY (list_id, tag_id)
 );
 
 
@@ -81,6 +98,12 @@ INSERT INTO "user" (lastname, firstname, email, password)
 VALUES 
 ('Durand', 'Sophie', 'sophie.durand@example.com', 'hashedpassword1'),
 ('Martin', 'Julien', 'julien.martin@example.com', 'hashedpassword2');
+
+INSERT INTO tag (name, color)
+VALUES
+('Kannan', 'info'),
+('Coralie', 'success'),
+('Chloé', 'warning');
 
 INSERT INTO list (name, position)
 VALUES 
@@ -112,6 +135,12 @@ VALUES
 (1, 1),
 (2, 2);
 
+INSERT INTO list_tag (list_id, tag_id)
+VALUES 
+  (1, 1),
+  (1, 2),
+  (2, 3);
+
 ALTER TABLE book
 ADD CONSTRAINT fk_book_author
 FOREIGN KEY (author_id) REFERENCES author(id)
@@ -135,6 +164,16 @@ ON DELETE CASCADE;
 ALTER TABLE booklist
 ADD CONSTRAINT fk_booklist_list
 FOREIGN KEY (list_id) REFERENCES list(id)
+ON DELETE CASCADE;
+
+ALTER TABLE list_tag
+ADD CONSTRAINT fk_listtag_list
+FOREIGN KEY (list_id) REFERENCES list(id)
+ON DELETE CASCADE;
+
+ALTER TABLE list_tag
+ADD CONSTRAINT fk_listtag_tag
+FOREIGN KEY (tag_id) REFERENCES tag(id)
 ON DELETE CASCADE;
 
 COMMIT;

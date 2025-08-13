@@ -6,11 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-
     "db:create": "node data/createDb.js",
     "db:seed": "node data/seedingDb.js",
     "db:reset": "npm run db:create && npm run db:seed"
-
   },
   "keywords": [
     "express",
@@ -22,6 +20,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "config": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",

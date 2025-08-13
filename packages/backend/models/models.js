@@ -3,12 +3,14 @@ import sequelize from "./sequelizeClient.js";
 
 
 export class User extends Model {}
+export class Tag extends Model {}
 export class List extends Model {}
 export class Author extends Model {}
 export class Editor extends Model {}
 export class Genre extends Model {}
 export class Book extends Model {}
 export class BookList extends Model {}
+export class ListHasTag extends Model {}
 
 User.init({
 
@@ -31,6 +33,19 @@ User.init({
     },
   },
   { sequelize, tableName: "user", timestamps: false, freezeTableName: true }
+);
+
+Tag.init({
+  name: {
+    type: DataTypes.STRING(255),
+    allowNull: false,
+  },
+  color: {
+    type: DataTypes.STRING(255),
+    allowNull: false,
+  }
+},
+{ sequelize, tableName: "tag", timestamps: false, freezeTableName: true }
 );
 
 List.init(
@@ -135,6 +150,30 @@ BookList.init(
     },
   },
   { sequelize, tableName: "booklist", timestamps: false, freezeTableName: true }
+);
+
+ListHasTag.init(
+  {
+    tag_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      //unique: "list_tag_unique",
+      references: {
+        model: Tag,
+        key: "id",
+      },
+    },
+    list_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      //unique: "list_tag_unique",
+      references: {
+        model: List,
+        key: "id",
+      },
+    },
+  },
+  { sequelize, tableName: "list_tag", timestamps: false, freezeTableName: true }
 );
 
 // BookList.associate = (models) => {
