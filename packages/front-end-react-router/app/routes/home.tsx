@@ -27,7 +27,7 @@ export default function HomePage(props: Route.ComponentProps) {
 
             <div className="flex justify-end">
                 <Link to="/addList">
-                    <Button className="btn-success">+</Button>
+                    <Button className="btn-primary">+</Button>
                 </Link>
             </div>
         </div>
