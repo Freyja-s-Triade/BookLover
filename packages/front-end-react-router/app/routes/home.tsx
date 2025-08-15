@@ -4,12 +4,14 @@ import { Button } from "../components/button";
 import { fetchHomePageLists } from "../services/api";
 import type { Route } from "./+types/home";
 
+// pré chargement des données récupérées depuis l'API
 export async function loader() {
     const lists = await fetchHomePageLists();
 
     return { lists };
 }
 
+// Route.ComponentPros = type qui inclut loaderData
 export default function HomePage(props: Route.ComponentProps) {
     const { lists } = props.loaderData;
 

@@ -7,7 +7,10 @@ import type { Route } from "./+types/addList";
 const apiUrl = "http://localhost:3000";
 
 export async function action(params: Route.ActionArgs) {
+    // récupération des données envoyées par le formulaire
     const formData = await params.request.formData();
+
+    //extraction des champs du formulaire
     const tagName = formData.get("tagName");
     const tagColor = formData.get("tagColor");
     const listName = formData.get("listName");
@@ -36,6 +39,7 @@ export async function action(params: Route.ActionArgs) {
     return { listId, tagId };
 }
 
+// correspondance entre le nom de couleur et la classe CSS
 const tagColors: Record<string, string> = {
     warning: "radio-warning",
     error: "radio-error",
